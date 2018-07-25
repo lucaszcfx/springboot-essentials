@@ -34,12 +34,12 @@ public class StudentEndPoint {
         verifyIfStudentExists(id);
         return new ResponseEntity<>(student,HttpStatus.OK);
     }
-    @GetMapping(path = "protected/students/findByName/{name}")
+    @GetMapping(path = "/protected/students/findByName/{name}")
         public ResponseEntity<?> findStudentsByName(@PathVariable String name){
         return new ResponseEntity<>(studentDao.findByNameIgnoreCaseContaining(name), HttpStatus.OK);
         }
 
-    @PostMapping(path = "admin/students")
+    @PostMapping(path = "/admin/students")
     @Transactional
         public ResponseEntity<?> save(@RequestBody Student student){
         studentDao.save(student);
@@ -50,7 +50,7 @@ public class StudentEndPoint {
         return new ResponseEntity<>(studentDao.save(student),HttpStatus.CREATED);
     }
 
-    @DeleteMapping(path = "admin/students/{id}")
+    @DeleteMapping(path = "/admin/students/{id}")
     //@PreAuthorize("hasRole('ADMIN')")
         public ResponseEntity<?> delete(@PathVariable("id") @RequestBody Long id) {
         verifyIfStudentExists(id);
@@ -58,7 +58,7 @@ public class StudentEndPoint {
         studentDao.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PutMapping(path = "admin/students")
+    @PutMapping(path = "/admin/students")
         public ResponseEntity<?> update (@RequestBody Student student){
         studentDao.save(student);
         return new ResponseEntity<>(HttpStatus.OK);
