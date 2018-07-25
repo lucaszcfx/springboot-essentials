@@ -35,7 +35,7 @@ Packages
   
   service
     CustomUserDetailService.java
-      //Validando grants do usuaria que esta fazendo a requisicao POST, PUT ou DELETE
+      //Validando grants do usuario que esta fazendo a requisicao POST, PUT ou DELETE
   
   util
     SpringBootEssentialsApplication
